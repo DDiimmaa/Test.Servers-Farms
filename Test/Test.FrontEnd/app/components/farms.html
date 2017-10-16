@@ -1,0 +1,57 @@
+﻿<style type="text/css">
+    h3, h4 {
+        margin: 0;
+    }
+    .list-group-item ul {
+        list-style: none;
+    }
+</style>
+<div>
+    <div ng-show="fvm.GlobalError != null"><h2 class="text-center">{{fvm.GlobalError}}</h2></div>
+    <div ng-repeat="farm in fvm.Farms" class="col-lg-4 col-md-6 col-sm-12 col-xs-12" ng-show="fvm.GlobalError == null">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>
+                    <button class="btn btn-default btn-xs pull-right" ng-click="fvm.RefreshFarm(farm, true)">
+                        <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+                    </button>
+                    {{farm.Name}}
+                </h3>
+            </div>
+            <div class="text-center"><i class="fa fa-spinner" aria-hidden="true" ng-show="farm.IsRefreshing"></i>
+            </div>
+            <div ng-show="!farm.IsRefreshing && !farm.IsAvailable">Farm is not available at the moment</div>
+            <ul class="list-group" ng-show="!farm.IsRefreshing && farm.IsAvailable">
+                <li ng-repeat="server in farm.Servers" class="list-group-item">
+                    <h4 class="list-group-item-heading">
+                        <button class="btn btn-default btn-xs pull-right" ng-click="fvm.RefreshServer(server)">
+                            <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+                        </button>
+                        {{server.Name}}
+                    </h4>
+                    <p class="list-group-item-text">
+                        <div class="text-center"><i class="fa fa-spinner" aria-hidden="true" ng-show="server.IsRefreshing"></i>
+                        </div>
+                        <div ng-show="!server.IsRefreshing && !server.IsAvailable">Server information is not available</div>
+                        <ul ng-show="!server.IsRefreshing && server.IsAvailable">
+                            <li><b>ModuleName</b>&nbsp;<span>{{server.Details.ModuleName}}</span></li>
+                            <li><b>ModuleInitTime</b>&nbsp;<span>{{server.Details.ModuleInitTime}}</span></li>
+                            <li><b>SystemTime</b>&nbsp;<span>{{server.Details.SystemTime}}</span></li>
+                            <li><b>QueuesInsert</b>&nbsp;<span>{{server.Details.QueuesInsert}}</span></li>
+                            <li><b>QueuesInsert_ToProces</b>&nbsp;<span>{{server.Details.QueuesInsert_ToProces}}</span></li>
+                            <li><b>QueuesIn</b>&nbsp;<span>{{server.Details.QueuesIn}}</span></li>
+                            <li><b>QueuesIn_ToProcess</b>&nbsp;<span>{{server.Details.QueuesIn_ToProcess}}</span></li>
+                            <li><b>QueuesOut</b>&nbsp;<span>{{server.Details.QueuesOut}}</span></li>
+                            <li><b>QueuesOutV2</b>&nbsp;<span>{{server.Details.QueuesOutV2}}</span></li>
+                            <li><b>QueuesError</b>&nbsp;<span>{{server.Details.QueuesError}}</span></li>
+                            <li><b>QueuesHealth</b>&nbsp;<span>{{server.Details.QueuesHealth}}</span></li>
+                            <li><b>ThreadCount</b>&nbsp;<span>{{server.Details.ThreadCount}}</span></li>
+                            <li><b>ThreadHealth</b>&nbsp;<span>{{server.Details.ThreadHealth}}</span></li>
+                            <li><b>DatabaseHealth</b>&nbsp;<span>{{server.Details.DatabaseHealth}}</span></li>
+                        </ul>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

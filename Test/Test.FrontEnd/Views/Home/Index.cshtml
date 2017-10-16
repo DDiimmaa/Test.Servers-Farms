@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section scripts{
+    <script type="text/javascript" src="../../app/app.module.js"></script>
+    <script type="text/javascript" src="../../app/app.route.js"></script>
+    <script type="text/javascript" src="../../app/app.config.js"></script>
+
+    @*WebAPI connection*@
+    <script type="text/javascript">
+            var WEBAPIURL;
+    </script>
+    <script src="@Url.Content("~/Settings/Index")"></script>
+
+    <!-- Services -->
+    <script src="/app/shared/services/services.module.js"></script>
+    <script src="/app/shared/services/apiConnection.js"></script>
+
+    <!-- Conponents -->
+    <script src="../../app/components/farms.module.js"></script>
+    <script src="../../app/components/farms.factory.js"></script>
+    <script src="../../app/components/farms.controller.js"></script>
+}
+
+<div ui-view>
+    
+</div>

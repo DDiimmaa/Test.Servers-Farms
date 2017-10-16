@@ -1,0 +1,14 @@
+﻿@model Test.FrontEnd.Models.WebConfigSettingsViewModel
+@{
+    Layout = null;
+}
+
+(function () {
+    'use strict';
+
+    WEBAPIURL = @Html.Raw(Model.SettingsJson);
+    if(typeof(angular) !== 'undefined') {
+        angular.module('@Model.AngularModuleName')
+        .constant('webConfigSettings', @Html.Raw(Model.SettingsJson));
+    }
+})();

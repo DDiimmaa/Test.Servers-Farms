@@ -1,0 +1,5 @@
+D:\Work_PETROV\test_projects\Test\Test.Models\bin\Debug\Test.Models.dll
+D:\Work_PETROV\test_projects\Test\Test.Models\bin\Debug\Test.Models.pdb
+D:\Work_PETROV\test_projects\Test\Test.Models\obj\Debug\Test.Models.csprojResolveAssemblyReference.cache
+D:\Work_PETROV\test_projects\Test\Test.Models\obj\Debug\Test.Models.dll
+D:\Work_PETROV\test_projects\Test\Test.Models\obj\Debug\Test.Models.pdb
